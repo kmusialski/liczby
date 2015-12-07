@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=3
+UnitCount=6
 
 [VersionInfo]
 Major=1
@@ -51,7 +51,7 @@ AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit6]
-FileName=liczby\Dekoder.h
+FileName=..\..\source files\Subject.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -70,18 +70,8 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit5]
-FileName=proba\main.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit1]
-FileName=liczby\Dekoder.h
+FileName=Dekoder.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -91,7 +81,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=liczby\Dekoder.cpp
+FileName=Dekoder.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -101,7 +91,27 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit3]
-FileName=liczby\main.cpp
+FileName=liczby.layout
+CompileCpp=1
+Folder=
+Compile=0
+Link=0
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit4]
+FileName=main.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit5]
+FileName=..\..\source files\main.cpp
 CompileCpp=1
 Folder=
 Compile=1

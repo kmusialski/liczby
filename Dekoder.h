@@ -1,11 +1,13 @@
 #include <iostream>
 #include <cmath>
 #include <stdio.h>
-#include <limits>
-#include <cstdlib>
-#include <string>
-#include <map>
-
+#include <iostream> // std
+#include <limits> // limit znakow
+#include <map> // mapy
+#include <windows.h> // klawisz esc
+// deklaracja 
+ 
+// deklaracja wskaznika
 #ifndef DEKODER_DEKODER_H
 #define DEKODER_DEKODER_H
 
@@ -17,13 +19,16 @@ private:
 
 public:
 	
-	
-	void table (long long int liczba1);
+	int get();
 	void initMaps();
-	string dziesiatkiJednosci();
-	string setki();
-	string tys();
+	void a(long long int liczba1);
 	string convert();
+	string dziesiatkiJednosci(int d, int j, int s, int t, int dt);
+	string setki(int s);
+	string dtys(int dt, int t );
+	
+	
+	
 };
 
 

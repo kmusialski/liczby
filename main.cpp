@@ -1,42 +1,45 @@
-#include <windows.h>
+
+#include<cstdlib>
+#include "Dekoder.h"
+using namespace std;
+
+Dekoder createDekoder(long long int liczba1);
+
 
 int main() {
-//	bool exit = false;
-	long long int liczba1;
-	initMaps();
-	while (true) {
-		liczba = new int[5];
-		if (GetAsyncKeyState(VK_ESCAPE)) {
-//			exit = true;
-			break;
-		}
+	
+	Dekoder zmienna = createDekoder(long long int liczba1);
 
-		cout << "Podaj liczbe w zakresie 1-1000" << endl;
-		cin >> liczba1;
-		table (liczba1);
-
-		cout<< convert() <<endl;
-
-		delete []liczba;
-	} ;
-	return 0;
 }
 
-//#include<iostream>
-#include<cstdlib>
-#include "Fibbo.h"
+Dekoder createDekoder(long long int liczba1){
 
-Fibbo createFibbo();
-//using namespace std;
- 
-int main()
-{
-Fibbo zmienna = createFibbo();
-}
-
-Fibbo createFibbo(){
-	Fibbo fibbo;
-	fibbo.setfibbo();
-	fibbo.fibonacci();
+	Dekoder dekoder;
+	dekoder.get();
+	dekoder.a(long long int liczba1);
+	dekoder.initMaps();
+	dekoder.dziesiatkiJednosci(d,j,s,t,dt);
+	dekoder.setki(s);
+	dekoder.dtys(dt,t);
+	dekoder.convert();
 	
 }
+
+////#include<iostream>
+//
+//#include "Fibbo.h"
+//
+//Fibbo createFibbo();
+////using namespace std;
+// 
+//int main()
+//{
+//Fibbo zmienna = createFibbo();
+//}
+//
+//Fibbo createFibbo(){
+//	Fibbo fibbo;
+//	fibbo.setfibbo();
+//	fibbo.fibonacci();
+//	
+//}
