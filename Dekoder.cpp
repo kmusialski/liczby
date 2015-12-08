@@ -6,15 +6,23 @@ map<int, string> mapaB;
 map<int, string> mapaC;
 map<int, string> mapaD;
 map<int, string> mapaE;
+long long int liczba1;
+
+//int d,j,s,t,dt;
  
-void Dekoder::a (long long int liczba1) { // przypisanie liczby do tablicy
+void Dekoder::a () { // przypisanie liczby do tablicy
                 int licznik = 0;
+                cout<<liczba1<<endl;
                 do {
                                int b = liczba1 % 10;
                                liczba1 = liczba1 / 10;
                                liczba[ licznik ] = b;
                                licznik++;
+                               cout<<liczba1<<endl;
                 } while (liczba1 != 0);
+                
+                cout<<"blabla"<<endl;
+				cout<<liczba[0];
 }
  
 map<int, string> b() { // mapa jednosci/ tysiecy
@@ -45,17 +53,17 @@ map<int, string> c() { // mapa nastek / tysiecy
                 mapa2[19] = "dziewietnascie";
                 return mapa2;
 }
-map<int, string> d() { // mapa dziesiatek
-                map<int, string> mapa2;
-                mapa2[2] =  "dwadziescia";
-                mapa2[3] = "trzydziesci";
-                mapa2[4] =  "czterdziesci";
-                mapa2[5] = "piecdziesiat";
-                mapa2[6] =  "szescdziesiat";
-                mapa2[7] = "siedemdziesiat";
-                mapa2[8] =  "osiemdziesiat";
-                mapa2[9] = "dziewiecdziesiat";
-                return mapa2;
+map<int, string> h() { // mapa dziesiatek
+                map<int, string> mapa4;
+                mapa4[2] =  "dwadziescia";
+                mapa4[3] = "trzydziesci";
+                mapa4[4] =  "czterdziesci";
+                mapa4[5] = "piecdziesiat";
+                mapa4[6] =  "szescdziesiat";
+                mapa4[7] = "siedemdziesiat";
+                mapa4[8] =  "osiemdziesiat";
+                mapa4[9] = "dziewiecdziesiat";
+                return mapa4;
 }
 map<int, string> e() {  // mapa setek
                 map<int, string> mapa3;
@@ -72,50 +80,50 @@ map<int, string> e() {  // mapa setek
 }
  
  
-string Dekoder::dtys(int dt, int t ) {  // przypisywanie oznaczen dla liczb > 999
-                if ( dt == 1) {
+string Dekoder::dtys() {  // przypisywanie oznaczen dla liczb > 999
+                if ( liczba[4] == 1) {
                               
-                               return mapaC[10 + t] + " " + "tysiecy ";
-                } else if ( dt > 1) {
-                               if (t != 0) {
-                                               return mapaD[dt] + " " + mapaB[t] + " " + "tysiecy ";
+                               return mapaC[10 + liczba[3]] + " " + "tysiecy ";
+                } else if ( liczba[4] > 1) {
+                               if (liczba[3] != 0) {
+                                               return mapaD[liczba[4]] + " " + mapaB[liczba[3]] + " " + "tysiecy ";
                                } else {
-                                               return mapaD[dt]+ " " + "tysiecy ";
+                                               return mapaD[liczba[4]]+ " " + "tysiecy ";
                                }
                 }
-                if (t == 0) {
+                if (liczba[3] == 0) {
                                return "";
-                } else if (t == 1) {
+                } else if (liczba[3] == 1) {
                                return "tysiac ";
-                } else if(t >1 && t <4) {
-                               return mapaB[t] + " tysiace ";
+                } else if(liczba[3] >1 && liczba[3] <4) {
+                               return mapaB[liczba[3]] + " tysiace ";
                 } else {
-                               return mapaB[t] + " tysiecy ";
+                               return mapaB[liczba[3]] + " tysiecy ";
                 }
 }
  
-string Dekoder::setki(int s) { // przypisywanie oznaczen dla liczb > 99 < 999
-                if (s != 0) {
+string Dekoder::setki() { // przypisywanie oznaczen dla liczb > 99 < 999
+                if (liczba[2] != 0) {
                                
-                               return mapaE[s] + " ";
+                               return mapaE[liczba[2]] + " ";
                 }
                 return "";
 }
  
  
-string Dekoder::dziesiatkiJednosci(int d, int j, int s, int t, int dt) { // przypisywanie oznaczen dla liczb < 99
-                if( (s != 0 && ((d,j) == 0)) ||( t !=0 && ((s,d,j ) == 0)) || ( dt !=0 && ((t,s,d,j ) == 0))) { // pozbycie sie zera dla sto tysiac itd
+string Dekoder::dziesiatkiJednosci() { // przypisywanie oznaczen dla liczb < 99
+                if( (liczba[2] != 0 && ((liczba[1],liczba[0]) == 0)) ||( liczba[3] !=0 && ((liczba[2],liczba[1],liczba[0] ) == 0)) || ( liczba[4] !=0 && ((liczba[3],liczba[2],liczba[1],liczba[0] ) == 0))) { // pozbycie sie zera dla sto tysiac itd
                                return "";
                 } else {
-                               if ( d == 1) {
-                                               return mapaC[10 + j] + " ";
-                               } else if (d == 0) {
-                                               return mapaB[j];
+                               if ( liczba[1] == 1) {
+                                               return mapaC[10 + liczba[0]] + " ";
+                               } else if (liczba[1] == 0) {
+                                               return mapaB[liczba[0]];
                                } else {
-                                               if (j != 0) {
-                                                               return mapaD[d] + " " + mapaB[j];
+                                               if (liczba[0] != 0) {
+                                                               return mapaD[liczba[1]] + " " + mapaB[liczba[0]];
                                                } else {
-                                                               return mapaD[d];
+                                                               return mapaD[liczba[1]];
                                                }
                                }
                 }
@@ -124,21 +132,21 @@ string Dekoder::dziesiatkiJednosci(int d, int j, int s, int t, int dt) { // przy
 void Dekoder::initMaps() { // inicjalizacja map dla poszczegolnych zmiennych
                 mapaB =  b(); 
                 mapaC =  c();
-                mapaD =  d();
+                mapaD =  h();
                 mapaE =  e();
 }
 string Dekoder::convert() { // konwersja wyniku sumarycznego
                 string result = "";
-                result += dtys(liczba[4],liczba[3]);
-                result += setki(liczba[2]);
-                result += dziesiatkiJednosci(liczba[1], liczba[0],liczba[2], liczba[3],liczba[4]);
+                result += Dekoder::dtys();
+                result += Dekoder::setki();
+                result += Dekoder::dziesiatkiJednosci();
                 return result;
 }
  
  
 int Dekoder::get() { // wczytanie danej i sprawdzenie ograniczen
                 long long int liczba1;
-                initMaps();
+                //Dekoder::initMaps();
                 while (true) {
                                liczba = new int[5];
                                memset(liczba, 0, 5*sizeof(int)); // reset tablicy 
@@ -156,8 +164,8 @@ int Dekoder::get() { // wczytanie danej i sprawdzenie ograniczen
                                }
                                else
                                {
-                               a (liczba1);
-                               cout<< convert() <<endl;
+                               a ();
+                              cout<< Dekoder::convert() <<endl;
                                }
                                } else
                                {

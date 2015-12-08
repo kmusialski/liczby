@@ -21,11 +21,11 @@ public:
 	
 	int get();
 	void initMaps();
-	void a(long long int liczba1);
+	void a();
 	string convert();
-	string dziesiatkiJednosci(int d, int j, int s, int t, int dt);
-	string setki(int s);
-	string dtys(int dt, int t );
+	string dziesiatkiJednosci();
+	string setki();
+	string dtys();
 	
 	
 	

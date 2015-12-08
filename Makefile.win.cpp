@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Dekoder.o main.o "../../../../proste\ aplikacje\ konsolowe/przypisanie\ 1.2\ final.o"
-LINKOBJ  = Dekoder.o main.o "../../../../proste aplikacje konsolowe/przypisanie 1.2 final.o"
+OBJ      = Dekoder.o main.o
+LINKOBJ  = Dekoder.o main.o
 LIBS     = -L"D:/Dev-Cpp/MinGW32/lib" -L"D:/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc
 INCS     = -I"D:/Dev-Cpp/MinGW32/include" -I"D:/Dev-Cpp/MinGW32/mingw32/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
 CXXINCS  = -I"D:/Dev-Cpp/MinGW32/include" -I"D:/Dev-Cpp/MinGW32/mingw32/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
@@ -29,6 +29,3 @@ Dekoder.o: Dekoder.cpp
 
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
-
-"../../../../proste\ aplikacje\ konsolowe/przypisanie\ 1.2\ final.o": ../../../../proste\ aplikacje\ konsolowe/przypisanie\ 1.2\ final.cpp
-	$(CPP) -c "../../../../proste aplikacje konsolowe/przypisanie 1.2 final.cpp" -o "../../../../proste aplikacje konsolowe/przypisanie 1.2 final.o" $(CXXFLAGS)

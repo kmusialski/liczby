@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0000000000000000000000000
-UnitCount=6
+UnitCount=5
 
 [VersionInfo]
 Major=1
@@ -52,16 +52,6 @@ SyncProduct=1
 
 [Unit6]
 FileName=..\..\source files\Subject.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit7]
-FileName=liczby\String.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -110,8 +100,28 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
+[Unit8]
+FileName=..\..\fibbo\Fibbo.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit9]
+FileName=..\..\fibbo\main.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
 [Unit5]
-FileName=..\..\source files\main.cpp
+FileName=..\..\source files\Subject.h
 CompileCpp=1
 Folder=
 Compile=1

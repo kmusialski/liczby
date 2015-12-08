@@ -3,24 +3,24 @@
 #include "Dekoder.h"
 using namespace std;
 
-Dekoder createDekoder(long long int liczba1);
+Dekoder createDekoder();
 
 
 int main() {
 	
-	Dekoder zmienna = createDekoder(long long int liczba1);
+	Dekoder zmienna = createDekoder();
 
 }
 
-Dekoder createDekoder(long long int liczba1){
+Dekoder createDekoder(){
 
 	Dekoder dekoder;
 	dekoder.get();
-	dekoder.a(long long int liczba1);
+	dekoder.a();
 	dekoder.initMaps();
-	dekoder.dziesiatkiJednosci(d,j,s,t,dt);
-	dekoder.setki(s);
-	dekoder.dtys(dt,t);
+	dekoder.dziesiatkiJednosci();
+	dekoder.setki();
+	dekoder.dtys();
 	dekoder.convert();
 	
 }
