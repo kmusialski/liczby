@@ -4,11 +4,11 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = Dekoder.o main.o
-LINKOBJ  = Dekoder.o main.o
-LIBS     = -L"D:/Dev-Cpp/MinGW32/lib" -L"D:/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc
-INCS     = -I"D:/Dev-Cpp/MinGW32/include" -I"D:/Dev-Cpp/MinGW32/mingw32/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
-CXXINCS  = -I"D:/Dev-Cpp/MinGW32/include" -I"D:/Dev-Cpp/MinGW32/mingw32/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"D:/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
+OBJ      = liczby/Dekoder.o liczby/main.o
+LINKOBJ  = liczby/Dekoder.o liczby/main.o
+LIBS     = -L"C:/Users/kmusialski/Downloads/Dev-Cpp/MinGW64/lib" -L"C:/Users/kmusialski/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Users/kmusialski/Downloads/Dev-Cpp/MinGW64/include" -I"C:/Users/kmusialski/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/kmusialski/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Users/kmusialski/Downloads/Dev-Cpp/MinGW64/include" -I"C:/Users/kmusialski/Downloads/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/kmusialski/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Users/kmusialski/Downloads/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = liczby.exe
 CXXFLAGS = $(CXXINCS) 
 CFLAGS   = $(INCS) 
@@ -24,8 +24,8 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-Dekoder.o: Dekoder.cpp
-	$(CPP) -c Dekoder.cpp -o Dekoder.o $(CXXFLAGS)
+liczby/Dekoder.o: liczby/Dekoder.cpp
+	$(CPP) -c liczby/Dekoder.cpp -o liczby/Dekoder.o $(CXXFLAGS)
 
-main.o: main.cpp
-	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+liczby/main.o: liczby/main.cpp
+	$(CPP) -c liczby/main.cpp -o liczby/main.o $(CXXFLAGS)

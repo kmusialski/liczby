@@ -1,15 +1,16 @@
-
+#include <windows.h>
 #include<cstdlib>
 #include "Dekoder.h"
+#include <iostream>
 using namespace std;
 
 Dekoder createDekoder();
 
-
 int main() {
+
 	
 	Dekoder zmienna = createDekoder();
-
+	
 }
 
 Dekoder createDekoder(){
@@ -24,6 +25,11 @@ Dekoder createDekoder(){
 	dekoder.convert();
 	
 }
+
+
+
+
+
 
 ////#include<iostream>
 //

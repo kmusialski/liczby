@@ -1,28 +1,21 @@
 #include "Dekoder.h"
 
 
-int *liczba;
-map<int, string> mapaB;
-map<int, string> mapaC;
-map<int, string> mapaD;
-map<int, string> mapaE;
-long long int liczba1;
+
 
 //int d,j,s,t,dt;
+
+
  
 void Dekoder::a () { // przypisanie liczby do tablicy
                 int licznik = 0;
-                cout<<liczba1<<endl;
                 do {
                                int b = liczba1 % 10;
                                liczba1 = liczba1 / 10;
                                liczba[ licznik ] = b;
                                licznik++;
-                               cout<<liczba1<<endl;
                 } while (liczba1 != 0);
-                
-                cout<<"blabla"<<endl;
-				cout<<liczba[0];
+			
 }
  
 map<int, string> b() { // mapa jednosci/ tysiecy
@@ -120,7 +113,7 @@ string Dekoder::dziesiatkiJednosci() { // przypisywanie oznaczen dla liczb < 99
                                } else if (liczba[1] == 0) {
                                                return mapaB[liczba[0]];
                                } else {
-                                               if (liczba[0] != 0) {
+                                               if (liczba[1] != 0 && liczba[0] != 0){
                                                                return mapaD[liczba[1]] + " " + mapaB[liczba[0]];
                                                } else {
                                                                return mapaD[liczba[1]];
@@ -137,16 +130,16 @@ void Dekoder::initMaps() { // inicjalizacja map dla poszczegolnych zmiennych
 }
 string Dekoder::convert() { // konwersja wyniku sumarycznego
                 string result = "";
-                result += Dekoder::dtys();
-                result += Dekoder::setki();
-                result += Dekoder::dziesiatkiJednosci();
+                result += dtys();
+                result += setki();
+                result += dziesiatkiJednosci();
                 return result;
 }
  
  
 int Dekoder::get() { // wczytanie danej i sprawdzenie ograniczen
-                long long int liczba1;
-                //Dekoder::initMaps();
+                
+                initMaps();
                 while (true) {
                                liczba = new int[5];
                                memset(liczba, 0, 5*sizeof(int)); // reset tablicy 
@@ -165,7 +158,9 @@ int Dekoder::get() { // wczytanie danej i sprawdzenie ograniczen
                                else
                                {
                                a ();
-                              cout<< Dekoder::convert() <<endl;
+                               
+                               
+								cout<< convert() <<endl;
                                }
                                } else
                                {

@@ -16,8 +16,14 @@ using namespace std;
 class Dekoder {
 
 private:
-
-public:
+	
+	long long int liczba1;
+	int *liczba;
+	map<int, string> mapaB;
+	map<int, string> mapaC;
+	map<int, string> mapaD;
+	map<int, string> mapaE;		
+	public:
 	
 	int get();
 	void initMaps();
