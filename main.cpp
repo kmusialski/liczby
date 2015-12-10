@@ -8,9 +8,9 @@ Dekoder createDekoder();
 
 int main() {
 
-	
+
 	Dekoder zmienna = createDekoder();
-	
+
 }
 
 Dekoder createDekoder(){
@@ -23,7 +23,7 @@ Dekoder createDekoder(){
 	dekoder.setki();
 	dekoder.dtys();
 	dekoder.convert();
-	
+
 }
 
 
@@ -37,7 +37,7 @@ Dekoder createDekoder(){
 //
 //Fibbo createFibbo();
 ////using namespace std;
-// 
+//
 //int main()
 //{
 //Fibbo zmienna = createFibbo();
@@ -47,5 +47,5 @@ Dekoder createDekoder(){
 //	Fibbo fibbo;
 //	fibbo.setfibbo();
 //	fibbo.fibonacci();
-//	
+//
 //}
