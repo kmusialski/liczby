@@ -2,10 +2,6 @@
 #include <windows.h>
 
 bool checkmarkQ(long long int liczba1);
-bool jednosci();
-bool dziesiat();
-bool nascie();
-bool zera();
 
 void Dekoder::a () { // przypisanie liczby do tablicy
                 int licznik = 0;
@@ -17,7 +13,6 @@ void Dekoder::a () { // przypisanie liczby do tablicy
                 } while (liczba1 != 0);
 
 }
-
 map<int, string> b() { // mapa jednosci/ tysiecy mapa B
                 map<int, string> mapa1;
                 mapa1[0] = "zero";
@@ -71,8 +66,6 @@ map<int, string> e() {  // mapa setek
                 mapa3[9] = "dziewiecset";
                 return mapa3;
 }
-
-
 string Dekoder::dtys() {  // przypisywanie oznaczen dla liczb > 999
                 if ( liczba[4] == 1) {
 
@@ -101,46 +94,31 @@ string Dekoder::setki() { // przypisywanie oznaczen dla liczb > 99 < 999
                 }
                 return "";
 }
-/*liczba[2] != 0 && (liczba[1],liczba[0]) <1) ||*/
-
 string Dekoder::dziesiatkiJednosci() {
 
             // jednosci
-            if (jednosci()){
-                return mapaB[liczba[0]];
-
+            if (hundred()){
+                return "";
             }
-            else if(nascie()){
+            else if(teen()){
+                    return mapaC[10 + liczba[0]] + " ";
+            }
+            else if(dozen()){
                     return mapaD[liczba[1]] + " " + mapaB[liczba[0]];
             }
-            else if(dziesiat()){
-                    return mapaD[liczba[1]] + " " + mapaB[liczba[0]];
-            }
-            else if(zera()){
+            else if(zero()){
                                return mapaD[liczba[1]];
             }
+            else if(unity()){
+
+                return mapaB[liczba[0]];
+            }
+            else{
+                cout<<"cos nie dziala";
+            }
+        return 0;
 }
-
-
-   /*  przypisywanie oznaczen dla liczb < 99
-            if ( (liczba[3] !=0 && liczba[2] == 0 && liczba[1] == 0 && liczba[0]  == 0) || ( liczba[4] !=0 && liczba[3] == 0 && liczba[2] == 0 && liczba[1] == 0 && liczba[0] == 0 )  )
-                   { // pozbycie sie zera dla sto tysiac itd
-                               return "";
-             }else {
-
-                               } else if (liczba[1] == 0) {
-                                               ;
-                               } else {
-                                               {
-
-                                               } else {
-
-                                               }
-                               }
-                }
-}
-*/
-bool jednosci(){
+bool Dekoder::unity(){
     if (liczba[1] == 0 && liczba[0] != 0){
         return true;
     }
@@ -148,30 +126,39 @@ bool jednosci(){
         return false;
     }
 }
-bool nascie(){
+bool Dekoder::teen(){
     if ( liczba[1] == 1) {
-     return mapaC[10 + liczba[0]] + " ";
+//
+return true;
     }
     else{
         return false;
     }
 }
-bool dziesiat(){
-    if (li               return mapaD[liczba[1]];czba[1] > 1 && liczba[0] != 0){
+bool Dekoder::dozen(){
+    if (liczba[1] > 1 && liczba[0] != 0){
             return true;
     }
     else{
         return false;
     }
 }
-bool zera(){
+bool Dekoder::zero(){
 
     if(liczba[1] > 1 && liczba[0] == 0 ){
         return true;
     }
-
+    else{
+        return false;
+    }
 }
-
+bool Dekoder::hundred(){
+    if ( liczba[1] == 0 && liczba[0] == 0)
+        return true;
+    else{
+        return false;
+    }
+}
 
 
 void Dekoder::initMaps() { // inicjalizacja map dla poszczegolnych zmiennych

@@ -1,9 +1,11 @@
 # depslib dependency file v1.0
-1449753081 source:c:\users\kmusialski\downloads\cpp\liczby\dekoder.cpp
-	"Dekoder.h"
+1449767613 source:d:\filmy\projekty c++\liczby\main.cpp
 	<windows.h>
+	<cstdlib>
+	"Dekoder.h"
+	<iostream>
 
-1449752755 c:\users\kmusialski\downloads\cpp\liczby\dekoder.h
+1449773416 d:\filmy\projekty c++\liczby\dekoder.h
 	<iostream>
 	<cmath>
 	<stdio.h>
@@ -11,9 +13,7 @@
 	<limits>
 	<map>
 
-1449752762 source:c:\users\kmusialski\downloads\cpp\liczby\main.cpp
-	<windows.h>
-	<cstdlib>
+1449767553 source:d:\filmy\projekty c++\liczby\dekoder.cpp
 	"Dekoder.h"
-	<iostream>
+	<windows.h>
 

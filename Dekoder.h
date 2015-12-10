@@ -25,6 +25,12 @@ private:
 	map<int, string> mapaE;
 	public:
 
+    bool hundred();
+    bool unity();
+    bool teen();
+    bool dozen();
+    bool zero();
+
 	int get();
 	void initMaps();
 	void a();
