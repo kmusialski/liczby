@@ -1,12 +1,12 @@
 #include "Dekoder.h"
 
 
-
+bool checkmarkQ(long long int liczba1);
 
 //int d,j,s,t,dt;
 
 
- 
+
 void Dekoder::a () { // przypisanie liczby do tablicy
                 int licznik = 0;
                 do {
@@ -15,9 +15,9 @@ void Dekoder::a () { // przypisanie liczby do tablicy
                                liczba[ licznik ] = b;
                                licznik++;
                 } while (liczba1 != 0);
-			
+
 }
- 
+
 map<int, string> b() { // mapa jednosci/ tysiecy
                 map<int, string> mapa1;
                 mapa1[0] = "zero";
@@ -71,11 +71,11 @@ map<int, string> e() {  // mapa setek
                 mapa3[9] = "dziewiecset";
                 return mapa3;
 }
- 
- 
+
+
 string Dekoder::dtys() {  // przypisywanie oznaczen dla liczb > 999
                 if ( liczba[4] == 1) {
-                              
+
                                return mapaC[10 + liczba[3]] + " " + "tysiecy ";
                 } else if ( liczba[4] > 1) {
                                if (liczba[3] != 0) {
@@ -94,20 +94,21 @@ string Dekoder::dtys() {  // przypisywanie oznaczen dla liczb > 999
                                return mapaB[liczba[3]] + " tysiecy ";
                 }
 }
- 
+
 string Dekoder::setki() { // przypisywanie oznaczen dla liczb > 99 < 999
                 if (liczba[2] != 0) {
-                               
+
                                return mapaE[liczba[2]] + " ";
                 }
                 return "";
 }
- 
- 
+/*liczba[2] != 0 && (liczba[1],liczba[0]) <1) ||*/
+
 string Dekoder::dziesiatkiJednosci() { // przypisywanie oznaczen dla liczb < 99
-                if( (liczba[2] != 0 && ((liczba[1],liczba[0]) == 0)) ||( liczba[3] !=0 && ((liczba[2],liczba[1],liczba[0] ) == 0)) || ( liczba[4] !=0 && ((liczba[3],liczba[2],liczba[1],liczba[0] ) == 0))) { // pozbycie sie zera dla sto tysiac itd
+               if ( (liczba[3] !=0 && ((liczba[2],liczba[1],liczba[0] ) == 0)) || ( liczba[4] !=0 && ((liczba[3],liczba[2],liczba[1],liczba[0] ) == 0)) )
+                   { // pozbycie sie zera dla sto tysiac itd
                                return "";
-                } else {
+             }else {
                                if ( liczba[1] == 1) {
                                                return mapaC[10 + liczba[0]] + " ";
                                } else if (liczba[1] == 0) {
@@ -121,9 +122,9 @@ string Dekoder::dziesiatkiJednosci() { // przypisywanie oznaczen dla liczb < 99
                                }
                 }
 }
- 
+
 void Dekoder::initMaps() { // inicjalizacja map dla poszczegolnych zmiennych
-                mapaB =  b(); 
+                mapaB =  b();
                 mapaC =  c();
                 mapaD =  h();
                 mapaE =  e();
@@ -135,39 +136,49 @@ string Dekoder::convert() { // konwersja wyniku sumarycznego
                 result += dziesiatkiJednosci();
                 return result;
 }
- 
- 
+
+
 int Dekoder::get() { // wczytanie danej i sprawdzenie ograniczen
-                
+
                 initMaps();
                 while (true) {
                                liczba = new int[5];
-                               memset(liczba, 0, 5*sizeof(int)); // reset tablicy 
+                               memset(liczba, 0, 5*sizeof(int)); // reset tablicy
                                if (GetAsyncKeyState(VK_ESCAPE)) {
  								return 0;
                                }
                                cout << "Podaj liczbe w zakresie 1-99999" << endl;
                                cin >> liczba1;
-                               if (bool Nieznak = cin.good())
-                               {
-                               	if (liczba1/100000 >= 1)
-                               {
+                               if (checkmarkQ(liczba1))
+                               	{
+                               			if (liczba1/100000 >= 1)
+                              		 {
                                                cout<< " za duza liczba"<<endl;
                                                continue;
-                               }
-                               else
-                               {
-                               a ();
-                               
-                               
-								cout<< convert() <<endl;
-                               }
-                               } else
-                               {
-                            	cin.clear();
-								cin.ignore( numeric_limits < streamsize >::max(), '\n' ); // sprawdzenie strumienia
+                              		 }
+                            			else
+                              		 {
+                              				 a ();
+											cout<< convert() <<endl;
+                               		}
+                               }else
+
+							   {
 								continue;
                                }
                            }
-                               
+
 }
+bool checkmarkQ(long long int liczba1)
+{
+	if (bool bCyfry = cin.good()) {
+		return true;
+	}
+else
+{
+	cin.clear();
+	cin.ignore( numeric_limits < streamsize >::max(), '\n' );
+    return false;
+}
+}
+
